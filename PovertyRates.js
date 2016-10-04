@@ -1,6 +1,6 @@
 
 //Variable Declaration
-//City,Region,Population,Poverty 
+// stuff: City,Region,Population,Poverty 
 var svg, grossScale;
 var cities = [];
 
