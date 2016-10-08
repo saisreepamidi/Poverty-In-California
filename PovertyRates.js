@@ -2,13 +2,13 @@
 //Variable Declaration
 // stuff: City,Region,Population,Poverty 
 var svg, grossScale;
-var cities = [];
+var cities;
 
 // Dimensions of screen and circle sizes
-var width = 1020,         // width of visualization 
+var width = 1000,         // width of visualization
     height = 1080,        // height of visualization
     padding = 3,          // separation between same-color circles
-    clusterPadding = 6,   // separation between different-color circles
+    clusterPadding = 5,   // separation between different-color circles
     maxRadius  = 17,      // maximum size of a circle
     medRadius = 13,       // medium radius of a circle
     minRadius = 8,        // minimum size of a circle
@@ -16,11 +16,9 @@ var width = 1020,         // width of visualization
 
 // Parsing of data set csv file
 d3.csv("povertyRate.csv", function(data) {
-    //cities = data;
-    for (var key in data) {
-        cities.push(data[key]);       
-    }
+    cities = data;
     cities.forEach(function(d) {
+        d.City = d.City;
         d.Poverty = +d.Poverty; 
         d.Region = d.Region; 
         d.Population = +d.Population;
@@ -32,32 +30,29 @@ d3.csv("povertyRate.csv", function(data) {
 
 /* This function will create the visualization based on the category selected by the user */
 function initialize(category){
-    
-    // removes pre-existing data visualization
     d3.selectAll("svg").remove(); 
     
-        var categories = d3.map(cities, function(d) { return d.category; });
-        var m = 50;
-        var n = cities.length; 
+    var categories = d3.map(cities, function(d) { return d.category; });
+    var m = 50;
+    var n = cities.length;
     
-        var minGross = d3.min(cities, function(d){ return d.Poverty; });
-        var maxGross = d3.max(cities, function(d){ return d.Poverty; });
+    //var minGross = d3.min(cities, function(d){ return d.Poverty; });
+    //var maxGross = d3.max(cities, function(d){ return d.Poverty; });
 
-        var clusters = new Array(m);
-        
-        var nodes = cities.map(function(currentValue, index) {
-                
-              if(currentValue.Population < 90000) {r = minRadius} 
-              else if(currentValue.Population > 100000 && currentValue.Population <= 1000000) {r = medRadius}
-              else{r = maxRadius}               
+    var clusters = new Array(m);
+    var nodes = cities.map(function(currentValue, index) {
+        if(currentValue.Population < 90000) {r = minRadius}
+        else if(currentValue.Population > 100000 && currentValue.Population <= 1000000) {r = medRadius}
+        else{r = maxRadius}
              
-              var i = currentValue[category], 
-              d = {cluster: i, 
+         var i = currentValue[category],
+             d = {cluster: i,
                    radius: r, 
                    City: currentValue.City,
+                   Region: currentValue.Region,
                    Poverty: currentValue.Poverty,
                    Population: currentValue.Population};
-            
+
           // if this is the largest node for a category, add it to 'clusters' array
           if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = d;
           return d;
@@ -159,10 +154,10 @@ function initialize(category){
         // Placement of circles hardcoded on the canvas
         function clusterGross(alpha) {
           return function(d) {
-            // math for clustering
+
             var yTemp;
             var cluster = {x: grossScale(d.Poverty), 
-                           y : yTemp,
+                           y : 120,
                            radius: -d.radius
                           };
               
@@ -211,12 +206,12 @@ function initialize(category){
         }
 };
 
-/* code adapted from https://bl.ocks.org/mbostock/3885304 */
+
 function addScale(){
     svg.selectAll(".legend").remove();
-    //grossScale = d3.scale.log().range([0, width-140]);
+
     grossScale = d3.scale.linear()
-        .range([0+margin, width-margin]);
+        .range([0+margin, width-(margin + 100)]);
     
     var xAxis = d3.svg.axis()
         .scale(grossScale)
@@ -235,9 +230,9 @@ function addScale(){
     svg.append("text")
         .attr("class", "label")
         .attr("x", (width/2) + 150)
-        .attr("y", 230)
+        .attr("y", 250)
         .style("text-anchor", "end")
-        .text("Poverty in California");
+        .text("Poverty In California");
      
     legend();
 };
@@ -252,9 +247,10 @@ function addScale2(){
         .range([0+margin, width-margin]);
     
     var xAxis = d3.svg.axis()
+        //.scale(7, 30)
         .scale(grossScale)
         .orient("bottom")
-        .ticks(14, " ")
+        .ticks(14, "")
 
     grossScale.domain([d3.min(cities, function(d) { return d.Poverty; }), 
               d3.max(cities, function(d) { return d.Poverty; })]);
@@ -358,6 +354,7 @@ function addScale2(){
     legend();
 };
 
+// Region split up button
 function genreClick(elem){
    var buttons = document.getElementsByClassName("navbar-item");
     for(i = 0; i < buttons.length; ++i){
@@ -368,7 +365,7 @@ function genreClick(elem){
     addScale2();
 };
 
-// navigation button functions
+// Overview button
 function grossClick(elem){
     var buttons = document.getElementsByClassName("navbar-item");
     for(i = 0; i < buttons.length; ++i){
