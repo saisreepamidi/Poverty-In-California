@@ -147,7 +147,7 @@ function initialize(category){
 
             var yTemp;
 
-            if(category == "Poverty"){ yTemp = 150}
+            if(category == "Poverty"){ yTemp = 180}
 
             if(category == "Region"){
                 switch(d.Region){
