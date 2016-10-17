@@ -105,6 +105,7 @@ function initialize(category){
         })
 
 
+
     // a simple tooltip from http://bl.ocks.org/biovisualize/1016860 with formatting
     var tooltip = d3.select("body")
         .append("div")
@@ -283,6 +284,26 @@ function addScale(){
         .style("text-anchor", "end")
         .text("Poverty In California");
 
+    var median = d3.median(cities, function(d) { return d.Poverty; });
+
+    // 16.75 overall median of data
+    svg.append("line")
+        .attr("class", "y axis")
+        .attr("x1", 515)
+        .attr("y1", 300)
+        .attr("x2", 515)
+        .attr("y2", 80)
+        .style("stroke-width", 2)
+        .style("stroke", "black")
+        .style("fill", "none");
+
+
+    svg.append("text")
+        .attr("class", "label")
+        .attr("x", 540)
+        .attr("y", 70)
+        .style("text-anchor", "end")
+        .text("Median");
     legend();
 };
 
@@ -310,7 +331,7 @@ function addScale2(){
         .attr("x", (width/2))
         .attr("y", 190)
         .style("text-anchor", "center")
-        .text("Sacramento");
+        .text("Southern California");
 
     svg.append("g")
         .attr("class", "x axis")
@@ -322,7 +343,7 @@ function addScale2(){
         .attr("x", (width/2))
         .attr("y", 340)
         .style("text-anchor", "center")
-        .text("Los Angeles");
+        .text("Bay Area");
 
     svg.append("g")
         .attr("class", "x axis")
@@ -334,7 +355,7 @@ function addScale2(){
         .attr("x", (width/2))
         .attr("y", 490)
         .style("text-anchor", "center")
-        .text("Bay Area");
+        .text("Southern Border");
 
     svg.append("g")
         .attr("class", "x axis")
@@ -346,7 +367,7 @@ function addScale2(){
         .attr("x", (width/2))
         .attr("y", 640)
         .style("text-anchor", "center")
-        .text("Central Sierra");
+        .text("San Joaquin Valley");
 
     svg.append("g")
         .attr("class", "x axis")
@@ -358,7 +379,7 @@ function addScale2(){
         .attr("x", (width/2))
         .attr("y", 790)
         .style("text-anchor", "center")
-        .text("Upstate California");
+        .text("Greater Sacramento");
 
     svg.append("g")
         .attr("class", "x axis")
@@ -382,7 +403,7 @@ function addScale2(){
         .attr("x", (width/2))
         .attr("y", 1090)
         .style("text-anchor", "center")
-        .text("Imperial")
+        .text("Northern California")
 
     svg.append("g")
         .attr("class", "x axis")
@@ -394,7 +415,7 @@ function addScale2(){
         .attr("x", (width/2))
         .attr("y", 1240)
         .style("text-anchor", "center")
-        .text("Central Valley")
+        .text("Northern Sacramento Valley")
 
     svg.append("g")
         .attr("class", "x axis")
@@ -406,19 +427,8 @@ function addScale2(){
         .attr("x", (width/2))
         .attr("y", 1370)
         .style("text-anchor", "center")
-        .text("Orange")
+        .text("Central Sierra")
 
-    svg.append("g")
-        .attr("class", "x axis")
-        .call(xAxis)
-        .attr("transform", "translate(100,"+1450+")")
-
-    svg.append("text")
-        .attr("class", "label")
-        .attr("x", (width/2))
-        .attr("y", 1480)
-        .style("text-anchor", "center")
-        .text("Imperial")
 
     legend2();
 };
@@ -430,7 +440,7 @@ function grossClick(elem){
     for(i = 0; i < buttons.length; ++i){
         buttons[i].style.backgroundColor="black";
     }
-    elem.style.backgroundColor="mediumseagreen";
+    elem.style.backgroundColor="purple";
     initialize("Poverty");
     addScale();
 };
@@ -441,7 +451,7 @@ function genreClick(elem){
     for(i = 0; i < buttons.length; ++i){
         buttons[i].style.backgroundColor="black";
     }
-    elem.style.backgroundColor="mediumseagreen";
+    elem.style.backgroundColor="purple";
     initialize("Region");
     addScale2();
 };
