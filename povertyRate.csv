@@ -1,59 +1,1 @@
-City,Region,Population,Poverty
-Alameda,Bay Area,37691912,13.2
-Alpine,Central Sierra,1529875,17.4
-Amador,Central Sierra,1102,14
-Butte,Upstate California,37953,22.6
-Calaveras,Central Sierra,220266,12.5
-Colusa,Upstate California,45052,13.2
-Contra Costa,Bay Area,21549,11.9
-Del Norte,Upstate California,1066096,25.4
-El Dorado,Sacramento,28659,10.3
-Fresno,Central Valley,180938,25.8
-Glenn,Upstate California,942904,19.2
-Humboldt,Upstate California,28128,21.1
-Imperial,Imperial,134761,26
-Inyo,Central Sierra,177057,12.7
-Kern,Central Valley,18478,24.6
-Kings,Central Valley,851710,21.2
-Lake,Upstate California,153765,23
-Lassen,Upstate California,64323,19.3
-Los Angeles,Los Angeles,34200,18.4
-Madera,Central Valley,9889056,23.6
-Marin,Bay Area,152925,9.4
-Mariposa,Central Sierra,255031,15.7
-Mendocino,Upstate California,18191,20.2
-Merced,Central Valley,87553,26.8
-Modoc,Upstate California,259898,21.5
-Mono,Central Sierra,9517,10.8
-Monterey,Central Coast,14309,17.1
-Napa,Bay Area,421898,12
-Nevada,Sacramento,138088,12.1
-Orange,Orange,98612,13
-Placer,Sacramento,3055745,8.5
-Plumas,Upstate California,357138,14.8
-Riverside,Inland Empire,19765,16.9
-Sacramento,Sacramento,2239620,17.7
-San Benito,Central Coast,1436105,12.4
-San Bernardino,Inland Empire,56072,19.4
-San Diego,Imperial,2065377,15.2
-San Francisco,Bay Area,3140069,13.8
-San Joaquin,Central Valley,812826,18.2
-San Luis Obispo,Central Coast,696214,15.1
-San Mateo,Bay Area,271969,7.9
-Santa Barbara,Los Angeles,727209,15.4
-Santa Clara,Bay Area,426878,10.7
-Santa Cruz,Central Coast,1809378,14.9
-Shasta,Upstate California,264298,19.4
-Sierra,Upstate California,177774,13.6
-Siskiyou,Upstate California,3113,24.4
-Solano,Bay Area,44507,13.6
-Sonoma,Bay Area,416471,12.2
-Stanislaus,Central Valley,488116,23.3
-Sutter,Upstate California,518522,15.8
-Tehama,Upstate California,94919,19.5
-Trinity,Upstate California,63601,21.4
-Tulare,Central Valley,13723,25.6
-Tuolumne,Central Sierra,449253,16.6
-Ventura,Los Angeles,54953,11.5
-Yolo,Sacramento,831771,21.3
-Yuba,Upstate California,202054,19.6
+City,Region,Population,PovertyAlameda,Bay Area,37691912,13.2Alpine,Central Sierra,1529875,17.4Amador,Central Sierra,1102,14Butte,Northern Sacramento Valley,37953,22.6Calaveras,Central Sierra,220266,12.5Colusa,Northern Sacramento Valley,45052,13.2Contra Costa,Bay Area,21549,11.9Del Norte,Northern California,1066096,25.4El Dorado,Greater Sacramento,28659,10.3Fresno,San Joaquin Valley,180938,25.8Glenn,Northern Sacramento Valley,942904,19.2Humboldt,Northern California,28128,21.1Imperial,Southern Border,134761,26Inyo,Central Sierra,177057,12.7Kern,Central Valley,18478,24.6Kings,San Joaquin Valley,851710,21.2Lake,Northern California,153765,23Lassen,Northern California,64323,19.3Los Angeles,Southern California,34200,18.4Madera,San Joaquin Valley,9889056,23.6Marin,Bay Area,152925,9.4Mariposa,Central Sierra,255031,15.7Mendocino,Northern California,18191,20.2Merced,San Joaquin Valley,87553,26.8Modoc,Northern California,259898,21.5Mono,Central Sierra,9517,10.8Monterey,Central Coast,14309,17.1Napa,Bay Area,421898,12Nevada,Northern California,138088,12.1Orange,Southern California,98612,13Placer,Greater Sacramento,3055745,8.5Plumas,Northern California,357138,14.8Riverside,Southern California,19765,16.9Sacramento,Greater Sacramento,2239620,17.7San Benito,Central Coast,1436105,12.4San Bernardino,Southern California,56072,19.4San Diego,Southern Border,2065377,15.2San Francisco,Bay Area,3140069,13.8San Joaquin,San Joaquin Valley,812826,18.2San Luis Obispo,Central Coast,696214,15.1San Mateo,Bay Area,271969,7.9Santa Barbara,Central Coast,727209,15.4Santa Clara,Bay Area,426878,10.7Santa Cruz,Central Coast,1809378,14.9Shasta,Northern Sacramento Valley,264298,19.4Sierra,Upstate California,177774,13.6Siskiyou,Northern California,3113,24.4Solano,Bay Area,44507,13.6Sonoma,Bay Area,416471,12.2Stanislaus,San Joaquin Valley,488116,23.3Sutter,Greater Sacramento,518522,15.8Tehama,Northern Sacramento Valley,94919,19.5Trinity,Northern California,63601,21.4Tulare,San Joaquin Valley,13723,25.6Tuolumne,Central Sierra,449253,16.6Ventura,Southern California,54953,11.5Yolo,Greater Sacramento,831771,21.3Yuba,Greater Sacramento,202054,19.6

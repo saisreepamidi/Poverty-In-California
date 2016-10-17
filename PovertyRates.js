@@ -1,7 +1,7 @@
 
 //Variable Declaration
 var svg, grossScale;
-var cities;
+var cities = [];
 
 // Dimensions of screen and circle sizes
 var width = 1000,         // width of visualization
@@ -23,6 +23,7 @@ d3.csv("povertyRate.csv", function(data) {
     initialize("Poverty");
     addScale();
 });
+
 
 /* This function will create the visualization based on the category selected by the user */
 function initialize(category){
@@ -78,17 +79,29 @@ function initialize(category){
         })
 
         .attr("fill", function(d) {
-            if(d.Region == "Upstate California") return d3.rgb("#8a00e6");
-            if(d.Region == "Sacramento") return d3.rgb("#0099ff");
-            if(d.Region == "Bay Area") return d3.rgb("#339966");
-            if(d.Region == "Central Sierra") return d3.rgb("#ff66cc");
-            if(d.Region == "Central Valley") return d3.rgb("#ffcc66");
-            if(d.Region == "Los Angeles") return d3.rgb("#00cc66");
-            if(d.Region == "Central Coast") return d3.rgb("#cc0099");
-            if(d.Region == "Orange") return d3.rgb("#ff6600");
-            if(d.Region == "Inland Empire") return d3.rgb("#006666");
-            if(d.Region == "Imperial") return d3.rgb("#660066");
+            if(d.Poverty > 7 && d.Poverty < 11){
+                return d3.rgb("#1e3a7b");
+            }
 
+            if(d.Poverty >= 11 && d.Poverty < 14){
+                return d3.rgb("#4670d2");
+            }
+
+            if(d.Poverty >= 14 && d.Poverty < 17){
+                return d3.rgb("#adc0eb");
+            }
+
+            if(d.Poverty >= 17 && d.Poverty < 20){
+                return d3.rgb("#ff6666");
+            }
+
+            if(d.Poverty >= 20 && d.Poverty < 23){
+                return d3.rgb("#ff0000");
+            }
+
+            if(d.Poverty >= 23){
+                return d3.rgb("#b30000");
+            }
         })
 
 
@@ -147,7 +160,7 @@ function initialize(category){
 
             var yTemp;
 
-            if(category == "Poverty"){ yTemp = 180}
+            if(category == "Poverty"){ yTemp = 150}
 
             if(category == "Region"){
                 switch(d.Region){
